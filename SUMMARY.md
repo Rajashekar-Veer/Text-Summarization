@@ -1,5 +1,21 @@
 ## Text Summarization:
 
+I am doing extractive text summarization using genism.
+In this method we iterate through cluster data and then convert the cluster data into a string and then apply genism summarize on each cluster data and select top 10 sentence in the cluster data.
+```
+    for i in range(len(data)):
+        strData = "".join(data[i])
+        # print("String Data:" ,i, strData)
+        summarized = summarize(strData, ratio=1, split=True)[0:10]
+        location = os.curdir + "/outputFiles"
+        summarizedData = open(os.path.join(location, 'Cluster' + str(i)), 'w', encoding="utf-8")
+        for j in range(len(summarized)):
+            summarizedData.write(summarized[j])
+            summarizedData.write('\n')
+        summarizedData.close()
+```
+In this function we write top 10 sentence of each cluster data into file.
+We write each cluster data into a separate cluster files.
 
 -----
 ### Cluster 0 Summary
