@@ -1,0 +1,10 @@
+In late December 2019, a novel coronavirus was officially named as SARS-CoV-2 by World Health Organization(WHO) and identified as the pathogen causing outbreaks of SARS-like and MERS-like illness in Chinese city of Wuhan, which was a zoonotic disease.
+As of March 13, 2020 , the outbreak of SARS-CoV-2 has been reported in many areas of the world, with more than 130,000 people infected [1] .
+With an alarmingly human-to-human transmissibility, the reproductive number of SARS-CoV-2 has been computed to around 3.28 [2] .
+According to the data in NGDC(National Genomics Data Center), at 15:00(GMT+8) on March 13, 2020, 482 genomic variations of SARS-CoV-2 has been reported, which has aroused widespread concern.The B cell epitope of viral surface protein can specifically bind to the host's B cell antigen receptor and induce the body to produce protective antibody and humoral immune response.
+The discovery of epitopes is helpful to the development of SARS-CoV-2 vaccine and the understanding of SARS-CoV-2's pathogenesis [3] .
+3 proteins embedded in the virus envelope of SARS-CoV-2 have been identified, Spike(S) protein, Envelope(E) protein, Membrane(M) protein.
+At present, due to the lack of study of the crystal structure of surface protein of SARS-CoV-2, the study of epitopes is timeconsuming, power-consuming, cost and difficult [4] .In this work, we analyzed the surface protein of SARS-CoV-2, predicted the structures with bioinformatics methods.
+On the basis, we predicted the linear and conformational B cell epitopes, analyzed the conservation of the epitopes, the adaptability and other evolutionary characteristics of the surface protein, which provided a theoretical basis for the vaccine development and prevention of SARS-CoV-2.the GMQE score of 0.73.
+According to the evaluation of the structure by Ramachandran plot( Figure 1C ), 100% of the residues were located in the most favoured regions( Table   1 ), indicating that the structure was reliable.
+The E protein of SARS-CoV-2 is a pentamer( Figure 1D ), which can be divided into the concentrated transmembrane part and the head located outside the envelope.
