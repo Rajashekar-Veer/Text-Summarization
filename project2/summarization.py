@@ -24,7 +24,7 @@ from gensim.summarization.summarizer import summarize
 
 def chooseFiles(directory, percentage):
     input = []
-    input.extend(glob.glob(directory))
+    input.extend(glob.glob(directory, recursive=True))
     jsonFiles = [i for i in random.sample(input, round(len(input) * (percentage / 100)))]
     print(len(jsonFiles))
     # print(input)
@@ -37,7 +37,7 @@ def chooseFiles(directory, percentage):
         for text in body_text:
             fileData += text['text']
         documentData.append(fileData)
-    # print(documentData)
+    print("Choose File Method Completed")
     return documentData
 
 def tokenization(data, sentTokenize = False):
@@ -56,6 +56,7 @@ def tokenization(data, sentTokenize = False):
             tokenWord = [i for i in token if i not in stopwords.words("english") and i not in exclude ]#and i not in exclude
             mytokens = " ".join([word for word in tokenWord])
             tokenData.append(mytokens)
+    print("Tokenization Completed")
     return tokenData
 
 def Vectorization(data):
@@ -64,14 +65,15 @@ def Vectorization(data):
     # df = pd.DataFrame(vector.toarray(), columns=vectorizer.get_feature_names())
     print(vector.toarray())
     print(vector.shape)
+    print("Vectorization Completed")
     return vector
 
 def optimalCluster(vector):
     pca = PCA(n_components=0.95, random_state=42)
     pcaReducedDim = pca.fit_transform(vector.toarray())
-    print(pcaReducedDim)
-    print(pcaReducedDim.shape)
-    print(vector.shape[0])
+    # print(pcaReducedDim)
+    # print(pcaReducedDim.shape)
+    # print(vector.shape[0])
     distortions = []
     K = range(2, 10, 2)
     for k in K:
@@ -85,6 +87,7 @@ def optimalCluster(vector):
     plt.ylabel('Distortion')
     plt.title('The Elbow Method showing the optimal k')
     plt.show()
+    print("Optimal Cluster Completed")
     return pcaReducedDim
 
 def clustering(matrix, actualData):
@@ -104,35 +107,34 @@ def clustering(matrix, actualData):
             if centers == model.labels_[labels]:
                 data.append(actualData[labels])
         clusterData.append(data)
-    print(clusterData)
+    # print(clusterData)
     for i in range(len(clusterData)):
         print(len((clusterData[i])))
     # print(clusterData)
+    print("Cluster Completed")
     return clusterData
 
 def summarization(data):
     for i in range(len(data)):
         strData = "".join(data[i])
-        print("String Data:" ,i, strData)
+        # print("String Data:" ,i, strData)
         summarized = summarize(strData, ratio=1, split=True)[0:10]
-        print("Summary Length:",len(summarized))
-        print("summarized Data:",summarized)
+        # print("Summary Length:",len(summarized))
+        # print("summarized Data:",summarized)
         location = os.curdir + "/outputFiles"
         summarizedData = open(os.path.join(location, 'Cluster' + str(i)), 'w', encoding="utf-8")
         for j in range(len(summarized)):
             summarizedData.write(summarized[j])
             summarizedData.write('\n')
         summarizedData.close()
+    print("Summarization Completed")
 
 
 
-directory = "D:/Spring Semester/Text Analytics/Project2/CORD-19-research-challenge/biorxiv_medrxiv/biorxiv_medrxiv/pdf_json/*.json"
-# directory = "D:/Spring Semester/Text Analytics/Redactor/*.json"
-data = chooseFiles(directory, percentage=30)
+directory = "D:/Spring Semester/Text Analytics/Project2/CORD-19-research-challenge/**/*.json"
+data = chooseFiles(directory, percentage=5)
 tokenizedDate = tokenization(data)
-print(tokenizedDate)
 X = Vectorization(tokenizedDate)
-print(X)
 pcaMatrix = optimalCluster(X)
 clusterData = clustering(pcaMatrix, data)
 summarization(clusterData)
