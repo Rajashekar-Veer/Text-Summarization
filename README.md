@@ -93,7 +93,7 @@ We write each cluster data into a separate cluster files.
 ## Assumptions/Bugs
 ----
 - This code only handles english language.
-- I could implement the text summarization for 5% of data files.The instance stop after sometime when I run for 10% data.
+- I could implement the text summarization for 1% of data files.The instance stop after sometime when I run for 10% data.
 
  ------
 ## How to Execute the Code
@@ -102,6 +102,6 @@ We write each cluster data into a separate cluster files.
 - Navigate to ../cs5293sp-project2 directory and run the below code to execute the project.
 
 ```
-python project1/summarization.py
+pipenv run python project1/summarization.py
 ```
 - Executing the program with this command line argument will read all files ending with .json. The program does the text summarization and clusters the data based on the optimal cluster size and save the top 10 sentence of the documents present in each cluster to outputFiles folder.
