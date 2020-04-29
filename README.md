@@ -105,3 +105,6 @@ We write each cluster data into a separate cluster files.
 pipenv run python project1/summarization.py
 ```
 - Executing the program with this command line argument will read all files ending with .json. The program does the text summarization and clusters the data based on the optimal cluster size and save the top 10 sentence of the documents present in each cluster to outputFiles folder.
+
+### Note:
+The input files must be placed in the inputfiles folder to execute the code.
