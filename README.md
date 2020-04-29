@@ -101,12 +101,13 @@ We write each cluster data into a separate cluster files.
 ## How to Execute the Code
 ----
 - We need to clone the github repository to the local instance using ``` git clone https://github.com/Rajashekar-Veer/cs5293sp20-project2.git ``` code.
-- Navigate to ../cs5293sp-project2 directory and run the below code to execute the project.
-
+- Navigate to ../cs5293sp-project2 directory.
+- The dataset must be placed in the inputfiles folder before running the program.
+- Run the below code to execute the project.
 ```
 pipenv run python project1/summarization.py
 ```
 - Executing the program with this command line argument will read all files ending with .json. The program does the text summarization and clusters the data based on the optimal cluster size and save the top 10 sentence of the documents present in each cluster to outputFiles folder.
 
-### Note:
-The input files must be placed in the inputfiles folder to execute the code.
+
+
