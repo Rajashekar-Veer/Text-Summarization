@@ -1,7 +1,6 @@
 import json
 import os
 import random
-import networkx
 import numpy as np
 import glob
 import pathlib
@@ -63,8 +62,8 @@ def Vectorization(data):
     vectorizer = TfidfVectorizer(stop_words='english')
     vector = vectorizer.fit_transform(data)
     # df = pd.DataFrame(vector.toarray(), columns=vectorizer.get_feature_names())
-    print(vector.toarray())
-    print(vector.shape)
+    #print(vector.toarray())
+    #print(vector.shape)
     print("Vectorization Completed")
     return vector
 
@@ -75,7 +74,7 @@ def optimalCluster(vector):
     # print(pcaReducedDim.shape)
     # print(vector.shape[0])
     distortions = []
-    K = range(2, 10, 2)
+    K = range(2, 30, 2)
     for k in K:
         k_means = KMeans(n_clusters=k, random_state=10).fit(pcaReducedDim)
         k_means.fit(pcaReducedDim)
@@ -131,8 +130,8 @@ def summarization(data):
 
 
 
-directory = "D:/Spring Semester/Text Analytics/Project2/CORD-19-research-challenge/**/*.json"
-data = chooseFiles(directory, percentage=5)
+directory = "inputfiles/**/*.json"
+data = chooseFiles(directory, percentage=100)
 tokenizedDate = tokenization(data)
 X = Vectorization(tokenizedDate)
 pcaMatrix = optimalCluster(X)
