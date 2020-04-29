@@ -131,7 +131,7 @@ def summarization(data):
 
 
 directory = "inputfiles/**/*.json"
-data = chooseFiles(directory, percentage=100)
+data = chooseFiles(directory, percentage=10)
 tokenizedDate = tokenization(data)
 X = Vectorization(tokenizedDate)
 pcaMatrix = optimalCluster(X)
