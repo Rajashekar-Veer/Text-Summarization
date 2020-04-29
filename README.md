@@ -1,5 +1,7 @@
 ## Text Summarization
 
+Text summarization is the process of shortening a set of data computationally, to create a subset (a summary) that represents the most important or relevant information within the original content.Text summarization finds the most informative sentences in a document.
+
 ------
 Packages Used:
 ----
